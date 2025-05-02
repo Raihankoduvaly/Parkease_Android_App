@@ -1,0 +1,49 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme, Material3 DayNight theme without action bar -->
+    <style name="Base.Base.Theme.Parking" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your dark theme here. -->
+        <!-- Example: <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+
+    <!-- ToolBar theme, using Material3 base -->
+    <style name="ToolBar" parent="Base.Base.Theme.Parking">
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorPrimaryDark">@color/maroon</item>
+        <item name="colorAccent">@color/maroon</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <!-- ToolBarCar theme, using Material3 base -->
+    <style name="ToolBarCar" parent="Base.Base.Theme.Parking">
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorPrimaryDark">@color/maroon</item>
+        <item name="colorAccent">@color/maroon</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="toolbarStyle">@style/CustomToolbar</item>
+    </style>
+
+    <!-- NoToolBar theme, using Material3 base and no action bar -->
+    <style name="NoToolBar" parent="Base.Base.Theme.Parking">
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorPrimaryDark">@color/maroon</item>
+        <item name="colorAccent">@color/maroon</item>
+        <item name="android:textColorPrimary">@color/maroon</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Custom Toolbar style -->
+    <style name="CustomToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:titleTextColor">@color/white</item>
+        <item name="android:subtitleTextColor">@color/white</item>
+    </style>
+
+    <!-- ToolBarDark theme, using Material3 base -->
+    <style name="ToolBarDark" parent="Base.Base.Theme.Parking">
+        <item name="colorPrimary">@color/maroon</item>
+        <item name="colorPrimaryDark">@color/maroon</item>
+        <item name="colorAccent">@color/maroon</item>
+        <item name="android:textColorPrimary">@color/maroon</item>
+        <item name="android:statusBarColor">@color/maroon</item>
+    </style>
+</resources>

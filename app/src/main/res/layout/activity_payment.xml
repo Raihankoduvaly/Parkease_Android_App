@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+   <!-- <TextView
+        android:id="@+id/textHeader"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/maroon"
+        android:gravity="center"
+        android:text="Valet Parking"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/textHeader"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/maroon"
+        android:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Check Out"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/toolBarback"
+            android:drawableStart="@drawable/arrow_back"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <LinearLayout
+        android:id="@+id/linrv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textHeader">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/search_bar_background"
+            android:padding="8dp">
+
+            <!-- Token Number EditText -->
+            <EditText
+                android:id="@+id/tokenEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Enter Serial number"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="16sp"
+                android:padding="4dp"
+                android:background="@null"
+                android:textColor="#212121"
+                android:textColorHint="#757575"/>
+
+            <!-- Search Button -->
+            <ImageButton
+                android:id="@+id/searchButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_search"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Search"/>
+
+            <!-- Divider -->
+            <View
+                android:layout_width="1dp"
+                android:layout_height="24dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="#E0E0E0"/>
+
+            <!-- Barcode Scanner Button -->
+            <ImageButton
+                android:id="@+id/barcodeButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_barcode_scanner"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Scan barcode"/>
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+          <!--  <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="60dp"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    &lt;!&ndash; Parking ID &ndash;&gt;
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/parkingcar_48" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Parking ID"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/parkingId"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="P12345"
+                            android:textAlignment="textEnd"
+                            android:textColor="#212121"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    &lt;!&ndash; Divider &ndash;&gt;
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E0E0E0" />
+
+                    &lt;!&ndash; Vehicle Info Section &ndash;&gt;
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Vehicle Information"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/licenseplate" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Vehicle Number"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/vehicleNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ABC1234"
+                            android:textAlignment="textEnd"
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/car3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Vehicle Type"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/vehicleType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Car"
+                            android:textAlignment="textEnd"
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/token" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Hook Number"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/hookNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="H001"
+                            android:textAlignment="textEnd"
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    &lt;!&ndash; Divider &ndash;&gt;
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E0E0E0" />
+
+                    &lt;!&ndash; Time Information &ndash;&gt;
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="12dp"
+                        android:text="Time Information"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_time" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="In Time"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/checkinTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2025-03-28 08:30:00"
+                            android:textAlignment="textEnd"
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/camera" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Created Date"
+                            android:textColor="#757575"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/createdDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="2025-03-28"
+                            android:textAlignment="textEnd"
+                            android:textColor="#212121"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    &lt;!&ndash; Divider &ndash;&gt;
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="#E0E0E0" />
+
+                    &lt;!&ndash; Notes Section &ndash;&gt;
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Notes"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/parkingNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:background="#FAFAFA"
+                        android:padding="10dp"
+                        android:text="Parked near entrance"
+                        android:textColor="#212121"
+                        android:textSize="16sp" />
+
+                    &lt;!&ndash; Image Placeholder &ndash;&gt;
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="Vehicle Image"
+                        android:textColor="@color/maroon"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="Vehicle image"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/car3" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>-->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/parkingCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Always visible section -->
+                    <LinearLayout
+                        android:id="@+id/headerSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <!-- Parking ID -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/parkingcar_48" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Parking ID"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/parkingId"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="P12345"
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="12sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+                        <!-- Vehicle Info Section -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/licenseplate" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Vehicle Number"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/vehicleNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="ABC1234"
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Expand/Collapse Button -->
+                        <Button
+                            android:id="@+id/expandButton"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@null"
+                            android:drawableEnd="@drawable/ic_expand_more"
+                            android:text="Show Details"
+                            android:textSize="12dp"
+                            android:textColor="@color/maroon" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/expandableSection"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:visibility="gone">
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="#E0E0E0" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_default_image" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Vehicle Type"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/vehicleType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Car"
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Hook Number -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/token" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Serial Number"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/hookNumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="H001"
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="#E0E0E0" />
+
+                        <!-- Time Information -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="12dp"
+                            android:text="Time Information"
+                            android:textColor="@color/maroon"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_time" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Check In "
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/checkinTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2025-03-28 08:30:00"
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:id="@+id/lnrOutTime"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/ic_time" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Check Out "
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/checkoutTime"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/person" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Created Date"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/createdDate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="2025-03-28"
+                                android:textAlignment="textEnd"
+                                android:textColor="#212121"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <!-- Divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="#E0E0E0" />
+
+                        <!-- Notes Section -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Notes"
+                            android:textColor="@color/maroon"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/parkingNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:background="#FAFAFA"
+                            android:padding="10dp"
+                            android:text="Parked near entrance"
+                            android:textColor="#212121"
+                            android:textSize="16sp" />
+
+                        <!-- Image Placeholder -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Vehicle Image"
+                            android:textColor="@color/maroon"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="Vehicle image"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_default_image" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="6dp"
+            android:id="@+id/lnrCheckOut"
+            android:visibility="gone"
+            android:layout_marginEnd="6dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+                <!-- Input Section -->
+                <LinearLayout
+                    android:id="@+id/inputSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="CheckOut Time"
+                        android:textColor="#000000"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/timeEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="Tap to select time"
+                        android:inputType="none"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:background="@drawable/edittext_border"
+                        android:padding="12dp"/>
+
+                    <Button
+                        android:id="@+id/checkOutButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/rounded_button"
+                        android:text=" CheckOut"
+                        android:textAllCaps="false"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/successSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone"
+                    android:background="#FFFFFF"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/checkmarkImage"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:src="@drawable/check"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Time Confirmed!"
+                            android:textColor="@color/maroon"
+                            android:textSize="22sp"
+                            android:layout_marginTop="16dp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/confirmedTimeText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12:30 PM"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            android:layout_marginTop="8dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your CheckOut Time is confirmed"
+                            android:textColor="#666666"
+                            android:textSize="16sp"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="200dp"
+            android:id="@+id/lnrNoData"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:src="@drawable/no_data_icon"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:text="No Data"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

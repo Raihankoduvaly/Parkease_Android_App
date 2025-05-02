@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "666680579987",
+    "project_id": "park-ease-81090",
+    "storage_bucket": "park-ease-81090.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666680579987:android:13864b770b72dea8977a66",
+        "android_client_info": {
+          "package_name": "com.elite.parking"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHISb-AQXLyJqdaNBdumQ5nBJLyy0q2wE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666680579987:android:5fd17a623e4be6b6977a66",
+        "android_client_info": {
+          "package_name": "com.example.park_ease"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHISb-AQXLyJqdaNBdumQ5nBJLyy0q2wE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

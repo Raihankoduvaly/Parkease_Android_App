@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Shimmer Layout -->
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shimmer_auto_start="true"
+        app:shimmer_base_alpha="0.7"
+        android:visibility="visible"
+        app:shimmer_duration="1500"
+        app:shimmer_highlight_alpha="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <!-- Fake Shimmer Items for Simulation -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shimmer_background" />
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vehicleRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EBE9E9"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <!-- No Data Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:id="@+id/lnrNoData"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:src="@drawable/no_data_icon"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="gone"
+            android:textStyle="bold"
+            android:text="No Data"/>
+    </LinearLayout>
+
+    <!-- Floating Action Button -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddVehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="Main FAB"
+            android:src="@drawable/add"
+            android:visibility="gone"
+            app:fabSize="normal" />
+        <!-- Child Floating Action Button 1 -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/childFab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="Child FAB 1"
+            android:src="@drawable/car_repair"
+            android:visibility="gone"
+            app:fabSize="normal" />
+        <!-- Child Floating Action Button 2 -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/childFab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:contentDescription="Child FAB 2"
+            android:src="@drawable/car_crash"
+            android:visibility="gone"
+            app:fabSize="normal" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
